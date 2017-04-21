@@ -14,7 +14,7 @@ class YOLO_TF:
 	disp_console = True
 	weights_file = 'weights/YOLO_small.ckpt'
 	alpha = 0.1
-	threshold = 0.2
+	threshold = 0.00
 	iou_threshold = 0.5
 	num_class = 20
 	num_box = 2
@@ -76,7 +76,7 @@ class YOLO_TF:
 		#skip dropout_31
 		self.fc_32 = self.fc_layer(32,self.fc_30,1470,flat=False,linear=True)
 		self.sess = tf.Session()
-		self.sess.run(tf.initialize_all_variables())
+		self.sess.run(tf.global_variables_initializer())
 		self.saver = tf.train.Saver()
 		self.saver.restore(self.sess,self.weights_file)
 		if self.disp_console : print "Loading complete!" + '\n'

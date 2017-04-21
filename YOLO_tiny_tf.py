@@ -63,7 +63,7 @@ class YOLO_TF:
 		#skip dropout_18
 		self.fc_19 = self.fc_layer(19,self.fc_17,1470,flat=False,linear=True)
 		self.sess = tf.Session()
-		self.sess.run(tf.initialize_all_variables())
+		self.sess.run(tf.global_variables_initializer())
 		self.saver = tf.train.Saver()
 		self.saver.restore(self.sess,self.weights_file)
 		if self.disp_console : print "Loading complete!" + '\n'
