@@ -1,8 +1,11 @@
 #2017 USAGE
+
 Main	
+
 	python YOLO_small_tf.py -fromfile person.jpg -tofile_img prediction.jpg
 
 in extract 
+
 	 ./darknet yolo test cfg/yolo-small.cfg yolo-small.weights
 	
 	python YOLO_small_builder.py
